@@ -17,6 +17,8 @@ export const defaultTheme = {
   'background': '#fafafa',
   'base-card': '#F3F3F3',
   'base-input': '#EDEDED',
-  'base-button': '#E6E6E6'
+  'base-button': '#E6E6E6',
+
+  'font-ballo2': `'Baloo 2', sans-serif`,
 
 }

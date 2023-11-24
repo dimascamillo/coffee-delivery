@@ -52,7 +52,7 @@ export const LocationClient = styled.span`
   align-items: center;
   gap: .5rem;
 
-  padding: 0.625rem .5rem;
+  padding: 0.625rem 1rem;
   border-radius: 8px;
 
   background-color: ${props => props.theme["purple-light"]};
