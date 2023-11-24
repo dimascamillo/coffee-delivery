@@ -3,15 +3,15 @@ import { defaultTheme } from "./styles/themes/default";
 import { GlobalStyle } from "./styles/global";
 import { BrowserRouter } from "react-router-dom";
 import { Router } from "./Router";
-// import { CyclesContextProvider } from "./contexts/CyclesContext";
+import { CoffeeDeliveryProvider } from "./contexts/CoffeeDeliveryContext";
 
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <BrowserRouter>
-        {/* <CyclesContextProvider> */}
-        <Router />
-        {/* </CyclesContextProvider> */}
+        <CoffeeDeliveryProvider>
+          <Router />
+        </CoffeeDeliveryProvider>
       </BrowserRouter>
       <GlobalStyle />
     </ThemeProvider>
