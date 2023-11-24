@@ -22,7 +22,9 @@ export const ContainerTextBanner = styled.div`
 `
 
 export const ContainerImgBanner = styled.figure`
-  width: 40%;
+  width: 35%;
+
+  text-align: right;
 
   img {
     width: 100%;
@@ -36,7 +38,7 @@ export const ContainerTitleBanner = styled.div`
   gap: 1rem;
 
   h1 {
-    width: 100%;
+    width: 55%;
 
     color: ${props => props.theme["base-title"]};
 
@@ -55,7 +57,7 @@ export const ContainerTitleBanner = styled.div`
 `
 
 export const ContainerDescriptionBanner = styled.div`
-  width: 50%;
+  width: 80%;
 
   display: flex;
   gap: 2.5rem;

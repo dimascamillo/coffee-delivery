@@ -22,7 +22,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body, input, textarea, button {
+body,
+input,
+button,
+select,
+textarea {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1rem;
