@@ -1,19 +1,12 @@
 {
-  "posts": [
+  "products": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "name": "Expresso Tradicional",
+      "description": "O tradicional café feito com água quente e grãos moídos",
+      "price": "9.90",
+      "category": "tradicional",
+      "src": "/src/assets/products/expressoTradicional.svg"
     }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

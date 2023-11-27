@@ -25,9 +25,13 @@ export function CoffeeDeliveryProvider({ children }: CoffeeDeliveryProps) {
   const [products, setProducts] = useState<Products[]>([]);
 
   async function fetchProducts() {
-    const response = await api.get("/products");
-
-    setProducts(response.data);
+    try {
+      const response = await api.get("/products");
+      console.log(response.data);
+      setProducts(response.data);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   useEffect(() => {
