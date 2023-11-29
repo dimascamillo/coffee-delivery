@@ -13,6 +13,13 @@ export const ContainerShowcase = styled.section`
  }
 `
 
+export const ContainerCardsProducts = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+`
+
 export const CardShowCase = styled.div`
   width: 16rem;
   height: 25rem;

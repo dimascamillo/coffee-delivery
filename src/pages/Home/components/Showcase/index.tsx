@@ -6,6 +6,7 @@ import {
   CardShowCase,
   CategoryTypeCoffee,
   ContainerButtonsCheckout,
+  ContainerCardsProducts,
   ContainerGenericButtons,
   ContainerImgCoffee,
   ContainerPriceAndQuantityChekout,
@@ -27,40 +28,42 @@ export function Showcase() {
     <ContainerShowcase>
       <h2>Nossos cafés</h2>
 
-      {products.map((product) => {
-        const { src, category, name, description, price } = product;
+      <ContainerCardsProducts>
+        {products.map((product) => {
+          const { src, category, name, description, price } = product;
 
-        const priceReplaceString = price.replace(".", ",");
+          const priceReplaceString = price.replace(".", ",");
 
-        return (
-          <CardShowCase>
-            <ContainerImgCoffee>
-              <img src={src} />
-            </ContainerImgCoffee>
+          return (
+            <CardShowCase>
+              <ContainerImgCoffee>
+                <img src={src} />
+              </ContainerImgCoffee>
 
-            <CategoryTypeCoffee>{category}</CategoryTypeCoffee>
+              <CategoryTypeCoffee>{category}</CategoryTypeCoffee>
 
-            <TitleAndDescriptionCoffeeContainer>
-              <h3>{name}</h3>
-              <span>{description}</span>
-            </TitleAndDescriptionCoffeeContainer>
+              <TitleAndDescriptionCoffeeContainer>
+                <h3>{name}</h3>
+                <span>{description}</span>
+              </TitleAndDescriptionCoffeeContainer>
 
-            <ContainerPriceAndQuantityChekout>
-              <PriceContent>{priceReplaceString}</PriceContent>
-              <ContainerButtonsCheckout>
-                <ContainerGenericButtons>
-                  <ButtonAddToCart onClick={handleRemoveProductToCart}>-</ButtonAddToCart>
-                  <QuantityProducs>{quantityProducts}</QuantityProducs>
-                  <ButtonRemoveToCart onClick={handleAddProductToCart}>+</ButtonRemoveToCart>
-                </ContainerGenericButtons>
-                <ButtonCartCheckout>
-                  <img src={iconeCartWhite} />
-                </ButtonCartCheckout>
-              </ContainerButtonsCheckout>
-            </ContainerPriceAndQuantityChekout>
-          </CardShowCase>
-        );
-      })}
+              <ContainerPriceAndQuantityChekout>
+                <PriceContent>{priceReplaceString}</PriceContent>
+                <ContainerButtonsCheckout>
+                  <ContainerGenericButtons>
+                    <ButtonAddToCart onClick={handleRemoveProductToCart}>-</ButtonAddToCart>
+                    <QuantityProducs>{quantityProducts}</QuantityProducs>
+                    <ButtonRemoveToCart onClick={handleAddProductToCart}>+</ButtonRemoveToCart>
+                  </ContainerGenericButtons>
+                  <ButtonCartCheckout>
+                    <img src={iconeCartWhite} />
+                  </ButtonCartCheckout>
+                </ContainerButtonsCheckout>
+              </ContainerPriceAndQuantityChekout>
+            </CardShowCase>
+          );
+        })}
+      </ContainerCardsProducts>
     </ContainerShowcase>
   );
 }
