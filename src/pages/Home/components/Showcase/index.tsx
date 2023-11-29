@@ -1,18 +1,27 @@
 // import { useContext } from "react";
 import {
+  ButtonAddToCart,
+  ButtonCartCheckout,
+  ButtonRemoveToCart,
   CardShowCase,
   CategoryTypeCoffee,
+  ContainerButtonsCheckout,
+  ContainerGenericButtons,
   ContainerImgCoffee,
   ContainerPriceAndQuantityChekout,
   ContainerShowcase,
   PriceContent,
+  QuantityProducs,
   TitleAndDescriptionCoffeeContainer,
 } from "./styles";
 import { CoffeeDeliveryContext } from "../../../../contexts/CoffeeDeliveryContext";
 import { useContext } from "react";
 
+import iconeCartWhite from "../../../../assets/icons/cart-white.svg";
+
 export function Showcase() {
-  const { products } = useContext(CoffeeDeliveryContext);
+  const { products, handleAddProductToCart, handleRemoveProductToCart, quantityProducts } =
+    useContext(CoffeeDeliveryContext);
 
   return (
     <ContainerShowcase>
@@ -20,6 +29,8 @@ export function Showcase() {
 
       {products.map((product) => {
         const { src, category, name, description, price } = product;
+
+        const priceReplaceString = price.replace(".", ",");
 
         return (
           <CardShowCase>
@@ -35,7 +46,17 @@ export function Showcase() {
             </TitleAndDescriptionCoffeeContainer>
 
             <ContainerPriceAndQuantityChekout>
-              <PriceContent>{price}</PriceContent>
+              <PriceContent>{priceReplaceString}</PriceContent>
+              <ContainerButtonsCheckout>
+                <ContainerGenericButtons>
+                  <ButtonAddToCart onClick={handleRemoveProductToCart}>-</ButtonAddToCart>
+                  <QuantityProducs>{quantityProducts}</QuantityProducs>
+                  <ButtonRemoveToCart onClick={handleAddProductToCart}>+</ButtonRemoveToCart>
+                </ContainerGenericButtons>
+                <ButtonCartCheckout>
+                  <img src={iconeCartWhite} />
+                </ButtonCartCheckout>
+              </ContainerButtonsCheckout>
             </ContainerPriceAndQuantityChekout>
           </CardShowCase>
         );

@@ -20,5 +20,6 @@ export const defaultTheme = {
   'base-button': '#E6E6E6',
 
   'font-ballo2': `'Baloo 2', sans-serif`,
+  'font-default': `'Roboto', sans-serif`,
 
 }
