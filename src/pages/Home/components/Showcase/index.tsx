@@ -1,7 +1,6 @@
 import {
   ButtonAddToCart,
   ButtonCartCheckout,
-  ButtonRemoveToCart,
   CardShowCase,
   CategoryTypeCoffee,
   ContainerButtonsCheckout,
@@ -15,13 +14,28 @@ import {
   TitleAndDescriptionCoffeeContainer,
 } from "./styles";
 import { CoffeeDeliveryContext } from "../../../../contexts/CoffeeDeliveryContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import iconeCartWhite from "../../../../assets/icons/cart-white.svg";
 
 export function Showcase() {
-  const { products, handleAddProductToCart, handleRemoveProductToCart, quantityProducts } =
-    useContext(CoffeeDeliveryContext);
+  const [quantities, setQuantities] = useState<Record<number, number>>({});
+
+  const { products } = useContext(CoffeeDeliveryContext);
+
+  function handleAddProductToCart(id: number) {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [id]: (prevQuantities[id] || 0) + 1,
+    }));
+  }
+
+  function handleRemoveProductToCart(id: number) {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [id]: Math.max((prevQuantities[id] || 0) - 1, 0),
+    }));
+  }
 
   return (
     <ContainerShowcase>
@@ -29,7 +43,7 @@ export function Showcase() {
 
       <ContainerCardsProducts>
         {products.map((product) => {
-          const { src, category, name, description, price } = product;
+          const { src, category, name, description, price, id } = product;
 
           const priceReplaceString = price.replace(".", ",");
 
@@ -50,9 +64,9 @@ export function Showcase() {
                 <PriceContent>{priceReplaceString}</PriceContent>
                 <ContainerButtonsCheckout>
                   <ContainerGenericButtons>
-                    <ButtonAddToCart onClick={handleRemoveProductToCart}>-</ButtonAddToCart>
-                    <QuantityProducs>{quantityProducts}</QuantityProducs>
-                    <ButtonRemoveToCart onClick={handleAddProductToCart}>+</ButtonRemoveToCart>
+                    <ButtonAddToCart onClick={() => handleRemoveProductToCart(id)}>-</ButtonAddToCart>
+                    <QuantityProducs type="number" value={quantities[id] || 0} />
+                    <ButtonAddToCart onClick={() => handleAddProductToCart(id)}>+</ButtonAddToCart>
                   </ContainerGenericButtons>
                   <ButtonCartCheckout>
                     <img src={iconeCartWhite} />

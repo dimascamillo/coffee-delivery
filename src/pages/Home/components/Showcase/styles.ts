@@ -129,15 +129,27 @@ export const ButtonRemoveToCart = styled(BaseButtonCart)`
 
 `
 
-export const QuantityProducs = styled.span`
+export const QuantityProducs = styled.input`
   display: flex;
-  justify-content: center;
-  width: 1.4375rem;
-  padding: 0 1rem;
+  justify-content:center ;
+  width: 3rem;
+  text-align: center;
+  
+  /* padding: 0 1rem; */
 
   font-size: 2rem;
   color: ${props => props.theme["base-title"]};
+  border: 0;
 
+
+&::-webkit-inner-spin-button,
+&::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+& {
+    -moz-appearance: textfield;
+}
 `
 
 export const ButtonCartCheckout = styled.button`
