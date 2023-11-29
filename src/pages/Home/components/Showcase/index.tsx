@@ -1,4 +1,3 @@
-// import { useContext } from "react";
 import {
   ButtonAddToCart,
   ButtonCartCheckout,

@@ -5,8 +5,8 @@ interface Products {
   id: number;
   name: string;
   description: string;
-  price: number;
-  categories: string;
+  price: string;
+  category: string;
   src: string;
 }
 
